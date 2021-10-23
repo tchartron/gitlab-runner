@@ -4,12 +4,12 @@ services:
     image: gitlab/gitlab-runner:alpine
     container_name: gitlab-runner
     hostname: gitlab-runner
+    restart: unless-stopped
     volumes:
       - '.gitlab-runner-config:/etc/gitlab-runner'
       - '/var/run/docker.sock:/var/run/docker.sock'
     networks:
       - runner-network
-    restart: always
 
 networks:
   runner-network:
