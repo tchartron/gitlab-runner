@@ -9,7 +9,7 @@ check_interval = 15
 [[runners]]
   name = "refonte-runner"
   url = "https://gitlab.com/"
-  token = "sdzX6gYh"
+  token = "myawesometoken"
   executor = "docker"
   # [runners.custom_build_dir]
   # [runners.cache]
