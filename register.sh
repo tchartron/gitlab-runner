@@ -8,14 +8,15 @@ then
     exit 1
 fi
 
-docker exec -it gitlab-runner \
-    gitlab-runner register \
+docker run --rm -v /home/user/gitlab-runner/gitlab-runner-config:/etc/gitlab-runner gitlab/gitlab-runner register \
   --non-interactive \
   --executor "docker" \
   --docker-image alpine:latest \
   --url "https://gitlab.com/" \
   --registration-token "${REGISTRATION_TOKEN}" \
   --description "docker-runner" \
+  --tag-list "docker,refonte" \
+  --run-untagged="true" \
   --locked="false" \
   --access-level="not_protected"
 
